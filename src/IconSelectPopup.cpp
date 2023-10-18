@@ -311,7 +311,7 @@ void IconSelectPopup::setup() {
     this->setMouseEnabled(true);
 }
 
-IconSelectPopup* IconSelectPopup::create(ISGarageLayer* gl) {
+IconSelectPopup* IconSelectPopup::create(GJGarageLayer* gl) {
     auto pRet = new IconSelectPopup();
 
     if (pRet) {

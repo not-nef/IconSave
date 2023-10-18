@@ -128,17 +128,17 @@ void IconKitWidget::onUse(cocos2d::CCObject* pSender) {
                 break;
         }
         
-        this->m_pGarage->getPlayerPreview()->updatePlayerFrame(
+        this->m_pGarage->m_playerPreview->updatePlayerFrame(
             id, this->m_pKitObject->getPlayerFrame()
         );
-        this->m_pGarage->getPlayerPreview()->setColor(
+        this->m_pGarage->m_playerPreview->setColor(
             gm->colorForIdx(this->m_pKitObject->getColor1())
         );
-        this->m_pGarage->getPlayerPreview()->setSecondColor(
+        this->m_pGarage->m_playerPreview->setSecondColor(
             gm->colorForIdx(this->m_pKitObject->getColor2())
         );
-        this->m_pGarage->getPlayerPreview()->setGlowOutline(this->m_pKitObject->getGlowEnabled());
-        this->m_pGarage->getPlayerPreview()->updateColors();
+        this->m_pGarage->m_playerPreview->setGlowOutline(this->m_pKitObject->getGlowEnabled());
+        this->m_pGarage->m_playerPreview->updateColors();
     }
 
     auto alert = TextAlertPopup::create("Kit Enabled!", .5f, .6f);

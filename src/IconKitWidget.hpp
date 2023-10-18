@@ -2,7 +2,6 @@
 
 #include "IconKitObject.hpp"
 #include "IconSelectPopup.hpp"
-#include "GJGarageLayer.hpp"
 
 using namespace geode::prelude;
 
@@ -20,7 +19,7 @@ class IconKitWidget : public CCLayer, public FLAlertLayerProtocol {
         CCLabelBMFont* m_pNameLabel;
 
         CC_SYNTHESIZE(IconSelectPopup*, m_pParentPopup, ParentPopup);
-        CC_SYNTHESIZE(ISGarageLayer*, m_pGarage, Garage);
+        CC_SYNTHESIZE(GJGarageLayer*, m_pGarage, Garage);
 
         cocos2d::extension::CCScale9Sprite* m_pBGSprite;
 

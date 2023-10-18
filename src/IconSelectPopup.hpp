@@ -2,7 +2,6 @@
 
 #include "BrownAlertDelegate.hpp"
 #include "IconKitObject.hpp"
-#include "GJGarageLayer.hpp"
 
 using namespace geode::prelude;
 
@@ -11,7 +10,7 @@ class IconSelectPopup : public BrownAlertDelegate {
         static constexpr const unsigned int s_nMaxOnPage = 10;
 
     protected:
-        ISGarageLayer* m_pGarage;
+        GJGarageLayer* m_pGarage;
         cocos2d::CCLabelBMFont* m_pPageLabel;
         
         unsigned int m_nCurrentPage = 0;
@@ -37,5 +36,5 @@ class IconSelectPopup : public BrownAlertDelegate {
         void refreshList();
         void editKit(IconKitObject*);
 
-        static IconSelectPopup * create(ISGarageLayer* = nullptr);
+        static IconSelectPopup * create(GJGarageLayer* = nullptr);
 };

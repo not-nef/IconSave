@@ -1,44 +1,43 @@
-#include "GJGarageLayer.hpp"
 #include <Geode/modify/GJGarageLayer.hpp>
 #include "IconSelectPopup.hpp"
 #include "IconKitManager.hpp"
 
 using namespace geode::prelude;
 
-void ISGarageLayer::onSelectKit(cocos2d::CCObject* pSender) {
-    IconSelectPopup::create(this)->show();
-}
-
-void ISGarageLayer::onSaveCurrent(cocos2d::CCObject* pSender) {
-    auto gm = GameManager::sharedState();
-
-    auto icon = new IconKitObject();
-    icon->setCubeID(gm->getPlayerFrame());
-    icon->setShipID(gm->getPlayerShip());
-    icon->setBallID(gm->getPlayerBall());
-    icon->setUfoID(gm->getPlayerBird());
-    icon->setWaveID(gm->getPlayerDart());
-    icon->setRobotID(gm->getPlayerRobot());
-    icon->setSpiderID(gm->getPlayerSpider());
-    icon->setStreakID(gm->getPlayerStreak());
-    icon->setDeathID(gm->getPlayerDeathEffect());
-    icon->setPlayerFrame(gm->getPlayerIconType());
-    icon->setGlowEnabled(gm->getPlayerGlow());
-    icon->setColor1(gm->getPlayerColor());
-    icon->setColor2(gm->getPlayerColor2());
-    icon->setName(GJAccountManager::sharedState()->m_username);
-
-    auto im = IconKitManager::sharedState();
-
-    if (im) {
-        im->addKit(icon);
-
-        auto popup = TextAlertPopup::create("Icon Kit Added!", .5f, .6f);
-        this->addChild(popup, 100);
+class $modify(ISGarageLayer, GJGarageLayer) {
+    void onSelectKit(cocos2d::CCObject* pSender) {
+        IconSelectPopup::create(this)->show();
     }
-}
 
-class $modify(GJGarageLayer) {
+    void onSaveCurrent(cocos2d::CCObject* pSender) {
+        auto gm = GameManager::sharedState();
+
+        auto icon = new IconKitObject();
+        icon->setCubeID(gm->getPlayerFrame());
+        icon->setShipID(gm->getPlayerShip());
+        icon->setBallID(gm->getPlayerBall());
+        icon->setUfoID(gm->getPlayerBird());
+        icon->setWaveID(gm->getPlayerDart());
+        icon->setRobotID(gm->getPlayerRobot());
+        icon->setSpiderID(gm->getPlayerSpider());
+        icon->setStreakID(gm->getPlayerStreak());
+        icon->setDeathID(gm->getPlayerDeathEffect());
+        icon->setPlayerFrame(gm->getPlayerIconType());
+        icon->setGlowEnabled(gm->getPlayerGlow());
+        icon->setColor1(gm->getPlayerColor());
+        icon->setColor2(gm->getPlayerColor2());
+        icon->setName(GJAccountManager::sharedState()->m_username);
+
+        auto im = IconKitManager::sharedState();
+
+        if (im) {
+            im->addKit(icon);
+
+            auto popup = TextAlertPopup::create("Icon Kit Added!", .5f, .6f);
+            this->addChild(popup, 100);
+        }
+    }
+
     bool init() {
         if (!GJGarageLayer::init()) {
             return false;
