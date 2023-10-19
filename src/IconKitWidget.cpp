@@ -128,15 +128,9 @@ void IconKitWidget::onUse(cocos2d::CCObject* pSender) {
                 break;
         }
         
-        this->m_pGarage->m_playerPreview->updatePlayerFrame(
-            id, this->m_pKitObject->getPlayerFrame()
-        );
-        this->m_pGarage->m_playerPreview->setColor(
-            gm->colorForIdx(this->m_pKitObject->getColor1())
-        );
-        this->m_pGarage->m_playerPreview->setSecondColor(
-            gm->colorForIdx(this->m_pKitObject->getColor2())
-        );
+        this->m_pGarage->m_playerPreview->updatePlayerFrame(id, this->m_pKitObject->getPlayerFrame());
+        this->m_pGarage->m_playerPreview->setColor(gm->colorForIdx(this->m_pKitObject->getColor1()));
+        this->m_pGarage->m_playerPreview->setSecondColor(gm->colorForIdx(this->m_pKitObject->getColor2()));
         this->m_pGarage->m_playerPreview->setGlowOutline(this->m_pKitObject->getGlowEnabled());
         this->m_pGarage->m_playerPreview->updateColors();
     }
