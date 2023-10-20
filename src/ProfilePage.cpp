@@ -5,6 +5,10 @@
 using namespace geode::prelude;
 
 class $modify(ISProfilePage, ProfilePage) {
+    static void onModify(auto& self) {
+        self.setHookPriority("ProfilePage::loadPageFromUserInfo", -132456789);
+    }
+
     void onSaveIcons(cocos2d::CCObject* pSender) {
         auto icon = new IconKitObject();
         icon->setCubeID(this->m_score->getPlayerCube());
@@ -32,10 +36,8 @@ class $modify(ISProfilePage, ProfilePage) {
         }
     }
 
-    bool init(int accountID, bool idk) {
-        if (!ProfilePage::init(accountID, idk)) {
-            return false;
-        }
+    void loadPageFromUserInfo(GJUserScore* score) {
+        ProfilePage::loadPageFromUserInfo(score);
 
         auto spr_download = cocos2d::CCSprite::createWithSpriteFrameName("GJ_downloadBtn_001.png");
         spr_download->setScale(.8f);
@@ -50,7 +52,12 @@ class $modify(ISProfilePage, ProfilePage) {
         );
 
         this->m_buttonMenu->addChild(downloadButton);
-        
-        return true;
+
+        // Remove MegaHack Button
+        for (const auto& child : CCArrayExt<CCNode*>(m_buttonMenu->getChildren())) {
+            if (child->getPosition() == CCPoint(16.f, -95.f)) {
+                child->setVisible(false);
+            }
+        }
     }
 };
