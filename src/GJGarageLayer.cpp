@@ -61,26 +61,14 @@ class $modify(ISGarageLayer, GJGarageLayer) {
         spr_folder->setScale(1.15f);
 
         auto icon = SimplePlayer::create(1 + (std::rand() % 0xa0));    // 1 + (std::rand() % 0xa0)
-        icon->setColor({
-            (unsigned char)(1 + (std::rand() % 255)),
-            (unsigned char)(1 + (std::rand() % 255)),
-            (unsigned char)(1 + (std::rand() % 255))
-        });   // { 200, 200, 200 }
-        icon->setSecondColor({
-            (unsigned char)(1 + (std::rand() % 255)),
-            (unsigned char)(1 + (std::rand() % 255)),
-            (unsigned char)(1 + (std::rand() % 255))
-        });   // { 200, 200, 200 }
+        icon->setColor({(unsigned char)(1 + (std::rand() % 255)), (unsigned char)(1 + (std::rand() % 255)), (unsigned char)(1 + (std::rand() % 255))});   // { 200, 200, 200 }
+        icon->setSecondColor({(unsigned char)(1 + (std::rand() % 255)), (unsigned char)(1 + (std::rand() % 255)), (unsigned char)(1 + (std::rand() % 255))});   // { 200, 200, 200 }
         icon->setScale(.45f);
         icon->setPosition(spr_folder->getContentSize() / 2);
 
         spr_folder->addChild(icon);
 
-        auto folderButton = CCMenuItemSpriteExtra::create(
-            spr_folder,
-            this,
-            menu_selector(ISGarageLayer::onSelectKit)
-        );
+        auto folderButton = CCMenuItemSpriteExtra::create(spr_folder, this, menu_selector(ISGarageLayer::onSelectKit));
         folderButton->setPosition(28, 90);
         menu->addChild(folderButton);
 
