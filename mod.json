@@ -1,9 +1,9 @@
 {
 	"geode": "1.3.5",
 	"version": "v1.0.0",
-	"id": "hjfod.iconsave",
+	"id": "nef.iconsave",
 	"name": "IconSave",
-	"developer": "HJfod",
+	"developer": "nef & HJfod",
 	"description": "Save your Icon Sets",
 	"repository": "https://github.com/not-nef/IconSave",
 	"issues": {
