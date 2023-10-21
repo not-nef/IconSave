@@ -9,5 +9,10 @@
 	"issues": {
 		"info": "Please report issues on the GitHub Repo",
 		"url": "https://github.com/not-nef/IconSave/issues/new"
-	}
+	},
+    "resources": {
+        "sprites": [
+            "screenshot.png"
+        ]
+    }
 }
