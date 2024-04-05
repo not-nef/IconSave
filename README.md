@@ -1,3 +1,5 @@
 # IconSave
 
-This is where she makes a mod.
+> This Mod no longer works after Update 2.2
+
+Icon Kits for Geometry Dash
